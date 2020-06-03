@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Maze Generator</title>
+        <meta name="Maze-Frontend" content="Maze game which you can play.">
+        <meta name="Author" content="Anirudh Lakra">
+        <meta charset="UTF-8">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <script src="script.js"></script>
+    </head>
+    <body onload="maze();">
+        <div id="heading-box">
+            <h1 id="header">Maze Game</h1>
+        </div>
+        <p id="about">This game randomly generates mazes which you can solve.
+            You can adjust the difficulty of the maze on the side or if you are unable
+            to solve the maze you can reveal the solution. Made by Anirudh Lakra, 06/2020.
+        </p>
+        <div id="maze">
+            <canvas id="my-maze" width="700" height="500">Your browser does not support canvas.</canvas>
+        </div>
+    </body>
+</html>
