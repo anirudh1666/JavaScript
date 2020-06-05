@@ -1,7 +1,8 @@
 /* The maze in the init() function has already been created by the
    backend and I manually initialize it in the function. In the actual
    implementation the backend will generate a unique maze and send it to this
-   code which will draw it.
+   code which will draw it. This code will also be refactored to use less space
+   and run faster in actual implementation.
 */
 
 
@@ -13,11 +14,17 @@ function maze() {
     // Set up 2d array of nodes containing info about path and maze.
     var maze = init();
 
+    // Get start and ending cell row and column numbers.
+    var special_cells = get_special();
+
     // Calculate the width and height of each cell in the maze.
     var cell_dimensions = calc_dimensions(maze);
 
     // Draw the maze on canvas.
     draw_maze(maze, cell_dimensions);
+
+    // Color start or end cells blue.
+    color_special(special_cells, cell_dimensions);
 }
 
 /* This is a constructor for Node object. It holds information
@@ -180,6 +187,12 @@ function init() {
 }
 
 
+function get_special() {
+
+    return [[0, 3], [1, 7]];
+}
+
+
 function calc_dimensions(maze) {
 
     var num_cols = maze[0].length;
@@ -197,7 +210,7 @@ function draw_maze(maze, cell_dimensions) {
 
     var canvas = document.getElementById("my-maze");
     var ctx = canvas.getContext("2d");
-    var start = [50 + cell_dimensions[2], 50 + cell_dimensions[2]];
+    var start = [50, 50];
     var line_width = cell_dimensions[1] / 4;
 
     ctx.beginPath();
@@ -223,7 +236,7 @@ function draw_maze(maze, cell_dimensions) {
                     var neigh_y = start[0] + (neigh_node[0] * cell_dimensions[0]);
 
                     ctx.moveTo(x_coord, y_coord);
-                    
+
                     if (neigh_x === x_coord && neigh_y > y_coord) {
                         // Moving vertically down.
                         ctx.lineTo(neigh_x, neigh_y + line_width/2);
@@ -248,4 +261,34 @@ function draw_maze(maze, cell_dimensions) {
         }
     }
 }
+
+
+function color_special(special_cells, cell_dimensions) {
+
+    var canvas = document.getElementById("my-maze");
+    var ctx = canvas.getContext("2d");
+    var line_width = cell_dimensions[1] / 4;
+    var start = special_cells[0];
+    var end = special_cells[1];
+    var start_point = [50, 50];
+
+    var start_x = start_point[1] + (start[1] * cell_dimensions[1]);
+    var start_y = start_point[0] + (start[0] * cell_dimensions[0]) - line_width/2;
+    var end_x = start_point[1] + (end[1] * cell_dimensions[1]);
+    var end_y = start_point[0] + (end[0] * cell_dimensions[0]) - line_width/2;
+
+    alert("End_x: " + end_x);
+    alert("End_y: " + end_y);
+
+    ctx.beginPath();
+    ctx.lineWidth = line_width;
+    ctx.strokeStyle = "Blue";
+    ctx.moveTo(start_x, start_y);
+    ctx.lineTo(start_x, start_y + line_width);
+    ctx.stroke();
+
+    ctx.moveTo(end_x, end_y);
+    ctx.lineTo(end_x, end_y + line_width);
+    ctx.stroke();
+} 
 
