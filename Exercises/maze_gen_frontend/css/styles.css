@@ -1,0 +1,48 @@
+body {
+    font-size: 1em;
+    background-color: lightblue;
+}
+
+#heading-box {
+    background-color: blue;
+    padding: 10px;
+    border: 1px solid;
+}
+
+#header {
+    text-align: center;
+    padding-top: .1em;
+    font-family: Verdana, Geneva, sans-serif;
+    color: orange;
+    text-decoration: underline;
+}
+
+#about {
+    font-family: Tahoma, Geneva, sans-serif;
+    margin-top: 2em;
+    text-align: center;
+}
+
+#maze {
+    text-align: center;
+    margin-top: 3em;
+}
+
+#my-maze {
+    border: 1px solid;
+    background-color: black;
+    padding: .3em;
+}
+
+#start-button {
+    text-align: center;
+    padding: .5em;
+}
+
+#start {
+    color: black;
+    font-family: Tahoma, Geneva, sans-serif;
+    display: inline-block;
+}
+
+
