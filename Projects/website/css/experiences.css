@@ -46,6 +46,26 @@ body {
     margin: 20px;
 }
 
+#work h2, #education h2 {
+    text-align: center;
+    text-decoration: underline;
+    margin-top: 3%;
+}
+
+.title {
+    text-decoration: underline;
+    text-decoration-style: double;
+}
+
+.entry {
+    text-align: center;
+    width: 50%;
+    margin-top: 2%;
+    margin-left: 25%;
+    border: 1px solid;
+    border-radius: 25px;
+}
+
 .footer {
     border-top: 1px solid;
     margin-top: 4%;
