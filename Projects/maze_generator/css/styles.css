@@ -3,7 +3,6 @@ body {
     background-color: lightblue;
 }
 
-
 #heading-box {
     background-color: blue;
     padding: 10px;
@@ -33,4 +32,13 @@ body {
     border: 1px solid;
     background-color: black;
     padding: .3em;
+}
+
+#buttons {
+    text-align: center;
+    margin-top: 1%;
+}
+
+button {
+    height: 50px;
 }

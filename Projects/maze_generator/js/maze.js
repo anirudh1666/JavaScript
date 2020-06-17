@@ -96,7 +96,7 @@ function init() {
        by increasing the number of cells by 2. The last two coordinates at the end of maze
        at start and end cells.
     */
-    var maze = make_maze(16 + 2 * DIFFICULTY_LEVEL, 16 + 2  * DIFFICULTY_LEVEL++);
+    var maze = make_maze(8 + 2 * DIFFICULTY_LEVEL, 8 + 2  * DIFFICULTY_LEVEL++);
     
     // Pop last two cells off into seperate array.
     var special_cells = get_special(maze);
@@ -107,6 +107,33 @@ function init() {
    
     // Color start and end cells blue.
     color_special(special_cells, cell_dimensions);
+}
+
+/* Used to make maze harder or easier. Just increments or
+   decrements difficulty level then calls init to draw maze.
+   @params = harder_or_easier : 0 for harder 1 for easier.
+*/
+function regen(harder_or_easier) {
+
+    var canvas = document.getElementById("my-maze");
+    var context = canvas.getContext('2d');
+    
+    if (harder_or_easier === 0) {
+        // Make maze harder with more cells.
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        DIFFICULTY_LEVEL++;
+        init();
+    }
+    else {
+        if (DIFFICULTY_LEVEL === 1) {
+            alert("Maze can't get any easier!");
+        }
+        else {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            DIFFICULTY_LEVEL--;
+            init();
+        }
+    }
 }
 
 /* This function goes through and generates a 2D array of Cells. This function
@@ -227,6 +254,7 @@ function generate_end(num_rows, num_cols, start_side) {
     and picking a random unvisited neighbour. If it doesn't have any you continue to
     the next cell by popping. Otherwise, you push neighbour and curr_cell to stack, mark neighbour as visited
     and add an edge from curr_cell to neigh_cell. Then continue. Repeat until stack is empty.
+    The main downside with this algorithm is that it has a low branching factor and leads to long corridors.
     @params = curr : starting cell.
               stack : stack that will hold coordinates of cells.
               2maze : 2d array of cells in the maze.
@@ -287,7 +315,7 @@ function draw_maze(maze, cell_dimensions) {
 
     var canvas = document.getElementById("my-maze");
     var ctx = canvas.getContext("2d");
-    var start = [50,50];
+    var start = [15, 15];
     var line_width = cell_dimensions[1] / 4;
 
     ctx.beginPath();
@@ -341,8 +369,34 @@ function draw_maze(maze, cell_dimensions) {
     }
 }
 
+/* Colors the starting and finishing cell blue. 
+   @params = special_cells : array = [starting cell, end cell]
+             cell_dimensions : array = [cell_height, cell_width, cell_padding]
+   */ 
 function color_special(special_cells, cell_dimensions) {
-    // TODO
+    
+    var canvas = document.getElementById("my-maze");
+    var ctx = canvas.getContext("2d");
+    var line_width = cell_dimensions[1] / 4;
+    var start = special_cells[0];
+    var end = special_cells[1];
+    var start_point = [15, 15];
+
+    var start_x = start_point[1] + (start.col * cell_dimensions[1]);
+    var start_y = start_point[0] + (start.row * cell_dimensions[0]) - line_width/2;
+    var end_x = start_point[1] + (end.col * cell_dimensions[1]);
+    var end_y = start_point[0] + (end.row * cell_dimensions[0]) - line_width/2;
+
+    ctx.beginPath();
+    ctx.lineWidth = line_width;
+    ctx.strokeStyle = "Blue";
+    ctx.moveTo(start_x, start_y);
+    ctx.lineTo(start_x, start_y + line_width);
+    ctx.stroke();
+
+    ctx.moveTo(end_x, end_y);
+    ctx.lineTo(end_x, end_y + line_width);
+    ctx.stroke();
 }
 
 
