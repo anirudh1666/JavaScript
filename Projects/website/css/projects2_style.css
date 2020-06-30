@@ -1,4 +1,5 @@
 body {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1em;
 }
 
@@ -46,24 +47,42 @@ body {
     margin: 20px;
 }
 
-#work h2, #education h2 {
+#index {
     text-align: center;
-    text-decoration: underline;
-    margin-top: 3%;
 }
 
-.title {
-    text-decoration: underline;
-    text-decoration-style: double;
-}
-
-.entry {
+.post {
+    float: center;
     text-align: center;
-    width: 50%;
-    margin-top: 2%;
-    margin-left: 25%;
-    border: 1px solid;
+    background-color: black;
+    color: white;
     border-radius: 25px;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 1%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    height: 300px;
+}
+
+.post a {
+    text-decoration: underline;
+}
+
+.post a:link {
+    color: white;
+}
+
+.post a:visited {
+    color: white;
+}
+
+.post a:hover {
+    color: white;
+}
+
+.post a:active {
+    color: white;
 }
 
 .footer {
@@ -74,6 +93,7 @@ body {
     left: 0;
 }
 
+
 .footer img {
     display: inline;
     vertical-align: middle;
@@ -81,15 +101,15 @@ body {
     margin-left: 5px;
 }
 
+
 .footer p {
     font-size: 0.7em;
 }
 
-
 @media only screen 
 and (min-device-width : 320px) 
 and (max-device-width : 480px) {
-    .entry {
+    .post {
         margin-left: 15%;
         width: 70%;
     }

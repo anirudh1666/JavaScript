@@ -46,58 +46,23 @@ body {
     margin: 20px;
 }
 
-#left-side {
-    font-family: Arial, Helvetica, sans-serif;
-    padding-top: 50px;
-    width: 50%;
-    float: left;
-}
-
-#left-side a:link, #right-side a:link {
-    color: white;
-    text-decoration: none;
-}
-
-#left-side a:visited, #right-side a:visited {
-    color: white;
-    text-decoration: none;
-}
-
-#left-side a:hover, #right-side a:hover {
-    color: white;
-    text-decoration: none;
-}
-
-#left-side a:active, #right-side a:active {
-    color: white;
-    text-decoration: none;
-}
-
-#right-side {
-    font-family: Arial, Helvetica, sans-serif;
-    padding-top: 50px;
-    overflow:hidden;
-}
-
-.container {
-    background-color: black;
-    color: white;
-    width: 45%;
-    margin-left: 25%;
+#title {
     text-align: center;
-    height: 200px;
-    border-radius: 25px;
-}
-
-.container h3 {
-    padding-top: 10px;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5em;
 }
 
-.container p {
-    font-family: Arial, Helvetica, sans-serif;
+#review {
+    width: 80%;
     font-size: 1.2em;
+    margin-left: 10%;
+}
+
+#rating img {
+    vertical-align: middle;
+}
+
+#rating {
+    font-weight: bold;
 }
 
 .footer {
@@ -114,7 +79,6 @@ body {
     margin-right: 5px;
     margin-left: 5px;
 }
-
 
 .footer p {
     font-size: 0.7em;
