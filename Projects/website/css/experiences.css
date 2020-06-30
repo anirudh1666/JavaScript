@@ -66,6 +66,10 @@ body {
     border-radius: 25px;
 }
 
+.entry li {
+    text-align: left;
+}
+
 .footer {
     border-top: 1px solid;
     margin-top: 4%;
