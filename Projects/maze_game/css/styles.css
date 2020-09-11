@@ -23,9 +23,18 @@ body {
     text-align: center;
 }
 
-#maze {
+#difficulty-panel {
     text-align: center;
-    margin-top: 3em;
+}
+
+#maze {
+    margin-left: 25%;
+    margin-top: 1em;
+}
+
+#player {
+    padding: .3em;
+    background-color: transparent;
 }
 
 #my-maze {
@@ -34,11 +43,7 @@ body {
     padding: .3em;
 }
 
-#buttons {
+#button-panel {
+    padding-top: 1em;
     text-align: center;
-    margin-top: 1%;
-}
-
-button {
-    height: 50px;
 }

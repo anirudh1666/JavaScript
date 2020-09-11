@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Maze Game</title>
+        <meta name="Maze Game" content="Solve generated mazes">
+        <meta name="Author" content="Anirudh Lakra">
+        <meta charset="UTF-8">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <script src="js/maze.js"></script>
+    </head>
+    <body>
+        <div id="heading-box">
+            <h1 id="header">Maze Game</h1>
+        </div>
+        <p id="about">Solve these randomly generated mazes! Use arrow buttons to move around the maze and move from the starting blue cell to end blue cell.</p>
+        <div id="difficulty-panel">
+            <button type="button" onclick="change_diff(0);">Decrease difficulty.</button>
+            <button type="button" onclick="change_diff(1);">Increase difficulty</button>
+        </div>
+        <div id="button-panel" style="position: relative">
+            <button type="button" onclick="move(0);">Left</button>
+            <button type="button" onclick="move(2);">Right</button>
+            <button type="button" onclick="move(1);">Up</button>
+            <button type="button" onclick="move(3);">Down</button>
+        </div>
+        <div id="maze">
+            <div id="center" style="position: relative">
+                <canvas id="my-maze" width="800" height="800"
+                    style="position: absolute; left: 0; top: 0; z-index: 0;">Your browser doesn't support canvas</canvas>
+                <canvas id="player" width="800" height="800"
+                    style="position: absolute; left: 0; top: 0; z-index: 1;">Your browser doesn't support canvas.</canvas>
+            </div>
+        </div>
+    </body>
+</html>
