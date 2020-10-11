@@ -22,21 +22,19 @@
             </ul>
         </header>
         <div id="title">
-            <h2>Maze Generator</h2>
-            <p>06/2020</p>
+            <h2>Maze Game</h2>
+            <p>09/2020</p>
         </div>
         <div id="content">
             <p>Due to Coronavirus, my first year at university was cut short. The extra time allowed me to do 
-                some of my own projects, one of which was a maze generator that ran in your browser. The original idea
-                was to build a maze game where the user could control the sprite and move it in the maze. On completing 
-                the maze, a new harder maze would be generated and the user would be allowed to solve that. I wanted to 
+                some of my own projects, one of which was a maze game that ran in your browser. I wanted to 
                 build this app with a frontend and backend but I was unable to do so. 
             </p>
             <p>While planning this, I wanted to improve my web programming skills and become better at linking a frontend with a 
                 backend. I planned to use JSPs and servlets since I had experience using them in one of my coursework's. However,
                 while I was linking my backend to frontend, I found JSPs to be unnecessarily difficult and was unable to successfully
-                link a backend coded in Java and frontend in JavaScript, HTML and CSS. This led to me coding the maze generating algorithm
-                all in JavaScript.
+                link a backend coded in Java and frontend in JavaScript, HTML and CSS. This led to me coding the maze ggenerating algorithm as well 
+                as player movement in JavaScript.
             </p>
             <p>Prior to this project, I had no JavaScript experience and had very little experience with HTML and CSS. This led to me going
                 through the book <a href="https://www.amazon.co.uk/Smarter-Way-Learn-JavaScript-technology/dp/1497408180/ref=sr_1_1?dchild=1&keywords=a+smarter+way+to+learn+javascript&qid=1592392447&s=instant-video&sr=8-1">
@@ -44,10 +42,11 @@
                 Smarter Way to learn HTML and CSS</a> both by Mark Myers. 
                 You can read my review of both books in my blog. 
             </p>
-            <p>Once I knew the basics of JavaScript, HTML and CSS, I divided the project into 2 subproblems which were:
+            <p>Once I knew the basics of JavaScript, HTML and CSS, I divided the project into 3 subproblems which were:
                 <ol>
                     <li>Generating a random Maze</li>
                     <li>Rendering and displaying maze to user</li>
+                    <li>Controlling player movement.</li>
                 </ol>
             </p>
             <p>I practiced solving problem 1 by implementing a depth first search algorithm in Java. 
@@ -72,7 +71,13 @@
                 manually input this maze into JavaScript and drew it by hand so I knew what it should look like. I used JavaScript to draw
                 on the canvas and the rest of it was in HTML. I used lineTo() and stroke() to draw the maze paths.
             </p>
-            <p>In the future, I want to improve this project so that the user can control a sprite to solve the maze. Link to this project is <a href="https://github.com/anirudh1666/JavaScript/tree/master/Projects/maze_generator">here</a></p>
+            <p>Lastly, to solve problem 3 I modelled the player as a point on a 2D grid. The coordinates of the player correspond to a cell in the maze. 
+               To check if the movement is allowed I would check if any of the neighbouring cells have an edge to the cell the player is currently on. In my first attempt
+               to draw player movement I made the mistake of drawing the player on the same canvas. This meant erasing the player would erase part of the maze as well. To get around 
+               this problem I layered another canvas ontop of the one containing the maze and would draw player movement on the top canvas. This allowed to me to redraw the player
+               without worrying about modifying the maze.
+            </p>
+            <p>Link to this project is <a href="https://github.com/anirudh1666/JavaScript/tree/master/Projects/maze_game">here</a></p>
         </div>
         <div class="footer">
             <a href="https://github.com/anirudh1666">
