@@ -519,28 +519,30 @@ function change_diff(inc_or_dec) {
     var ctx_maze = canvas_maze.getContext("2d");
     var ctx_player = canvas_player.getContext("2d");
 
-    if (inc_or_dec) {
+    ctx_maze.clearRect(0, 0, canvas_maze.width, canvas_maze.height);
+    ctx_player.clearRect(0, 0, canvas_player.width, canvas_player.height);
+
+    if (inc_or_dec === 1) {
         // increase difficulty by adding 5 to NUM_ROWS_COLS.
         if (NUM_ROWS_COLS + 5 <= 35) {
             NUM_ROWS_COLS += 5;
-            ctx_maze.clearRect(0, 0, canvas_maze.width, canvas_maze.height);
-            ctx_player.clearRect(0, 0, canvas_player.width, canvas_player.height);
             init();
         }
         else {
             alert("Reached maximum difficulty.");
         }
     }
-    else {
+    else if (inc_or_dec === 0) {
         if (NUM_ROWS_COLS - 5 >= 20) {
             NUM_ROWS_COLS -= 5;
-            ctx_maze.clearRect(0, 0, canvas_maze.width, canvas_maze.height);
-            ctx_player.clearRect(0, 0, canvas_player.width, canvas_player.height);
             init();
         }
         else {
             alert("Reached minimum difficulty.");
         }
+    }
+    else {
+        init();
     }
 }
 

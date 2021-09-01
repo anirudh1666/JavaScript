@@ -18,13 +18,8 @@
         <p id="about">Solve these randomly generated mazes! Use arrow buttons to move around the maze and move from the starting blue cell to end blue cell.</p>
         <div id="difficulty-panel">
             <button type="button" onclick="change_diff(0);">Decrease difficulty.</button>
+            <button type="button" onclick="change_diff(2);">Recreate</button>
             <button type="button" onclick="change_diff(1);">Increase difficulty</button>
-        </div>
-        <div id="button-panel" style="position: relative">
-            <button type="button" onclick="move(0);">Left</button>
-            <button type="button" onclick="move(2);">Right</button>
-            <button type="button" onclick="move(1);">Up</button>
-            <button type="button" onclick="move(3);">Down</button>
         </div>
         <div id="maze">
             <div id="center" style="position: relative">
@@ -35,4 +30,22 @@
             </div>
         </div>
     </body>
+    <script>
+        window.addEventListener("keydown", function(event) {
+            // handle keyboard movement
+            if (event.defaultPrevented) {
+                return;
+            }
+            if (event.code === "ArrowDown") {
+                move(3);
+            }
+            switch (event.code) {
+                case "ArrowDown": event.preventDefault(); move(3); break;
+                case "ArrowUp": event.preventDefault(); move(1); break;
+                case "ArrowLeft": move(0); break;
+                case "ArrowRight": move(2); break;
+            }
+        })
+
+    </script>
 </html>
