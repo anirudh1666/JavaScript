@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Anirudh Lakra</title>
+        <meta name="Website" content="Anirudh Lakra's website">
+        <meta name="Author" content="Anirudh Lakra">
+        <meta charset="UTF-8">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../../css/project_post_style.css">
+    </head>
+    <body>
+        <header class="menu">
+            <h1>Anirudh Lakra</h1>
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="../experience.html">Experience</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <h2><u>Coding ML algorithms in Octave</u></h2>
+            <h3>07/2021</h3>
+            <p>As part of a Machine Learning course by Andrew Ng on Coursera, I was tasked to implement various 
+               ML algorithms in Octave. In this article, I will go over the ones that I have implemented and give an 
+               overview of the mathematics behind them. Note that these slides are from Andrew Ng's Machine Learning course. I hope you have as much 
+               fun as I did learning about the maths behind commonly used ML algorithms.
+            </p>
+            <p><h4>Regularised, Multivariate Linear Regression</h4>
+                Linear regression is a commonly used supervised learning algorithm used to predict a real-valued output; for example,
+                house prices or temperatures. In linear regression, our hypothesis function is shown below. The beta values are the weightings 
+                for each feature in the dataset and the x's represent the features. A feature is a quality that we believe will impact the output 
+                and by including it in our hypothesis function, we can account for it, e.g., for house prices, we could have the square feet, number of bedrooms,
+                number of toilets, and more. Our goal is to find the optimal values of beta that give us the most accurate output.
+            </p>
+            <div class="img_div">
+                <img src="../../images/projects/ml_algs/linear_reg_hypothesis.png" alt="linear_reg_hypothesis">
+                <p class="caption">Image 1: Hypothesis function for linear regression.</p>
+            </div>
+            <p>A cost function tells us how far off our prediction is from the actual value. By creating a cost function, we can try to minimise it, in other words 
+               minimise our error, to find the values of beta that give us the predictions with lowest average error. The algorithm 
+               that I use to minimise the cost function is gradient descent. Gradient descent works by going in the opposite direction to the gradient; consequently, the 
+               cost decreases since we are heading towards the local minimum. The alpha term is the learning rate which is generally within the range [0.001, 3]. The learning rate
+               tells us the step size in the opposite direction of the gradient. If alpha is too large, we may never converge; on the other hand, if alpha is too low, it will take too 
+               long to converge to local minima.
+            </p>
+            <div class="img_div">
+                <img src="../../images/projects/ml_algs/gradient_descent.png" alt="gradient_descent">
+                <p class="caption">Image 2: Gradient descent algorithm.</p>
+            </div>
+            <div class="img_div">
+                <img src="../../images/projects/ml_algs/linear_reg_cost.png" alt="linear_reg_cost">
+                <p class="caption">Image 3: Cost function for linear regression.</p>
+            </div>
+            <p>The regularised implementation of linear regression uses Lagrange multipliers to keep the optimal values of beta low. Gradient descent works in the same way as unregularised regression 
+               , however, there is an extra term for Thetas 1 to N, excluding Theta(0).
+            </p>
+            <div class="img_div">
+                <img src="../../images/projects/ml_algs/reg_linear_reg_grad_descent.png" alt="reg_linear_reg_cost">
+                <p class="caption">Image 4: Gradient descent for regularised linear regression.</p>
+            </div>
+            <p><h4>Regularised, Multivariate Logistic Regression</h4>
+                The main difference between logistic and linear regression is that logistic is used to predict classes or discrete values rather than real-valued; for example, 
+                what digit a handwritten digit is. The sigmoid/logistic function is a function within the range [0, 1]. By passing the output of linear regression into the sigmoid function, 
+                we obtain a value between [0, 1]. This value is equal to HTheta(x) (our hypothesis function). 
+            </p>
+            <div class="img_div">
+                <img src="../../images/projects/ml_algs/sigmoid_function.png" alt="sigmoid_func">
+                <p class="caption">Image 5: Sigmoid function.</p>
+                <img src="../../images/projects/ml_algs/log_reg_hypothesis.png" alt="log_reg_hypothesis">
+                <p class="caption">Image 6: Hypothesis function for logistic regression.</p>
+            </div>
+            <div class="img_div">
+                <img src="../../images/projects/ml_algs/log_reg_cost_function_1.png" alt="log_reg_cost_function_y=1">
+                <p class="caption">Image 7: Cost function for logistic regression showing why we have -log(HTheta(x)).</p>
+                <img src="../../images/projects/ml_algs/log_reg_cost_function_2.png" alt="log_reg_cost_Function_y=1">
+                <p class="caption">Image 8: Cost function for logistic regression showing why we have -log(1 - HTheta(X)).</p>
+                <img src="../../images/projects/ml_algs/log_reg_cost_func.png" alt="log_reg_cost_func">
+                <p class="caption">Image 9: Overall cost function for logistic regression.</p>
+            </div>
+            <p>The regularised cost function for logistic regression works in the same way as linear regression, we simply add a new term for each Theta that is multiplied by our Lagrange multipler / 2 x number of training examples.
+                If we have two classes, then if the output probability is > 0.5 then it indicates that the output is class 1, otherwise it is class 0.
+            </p>
+            <div class="img_div">
+                <img src="../../images/projects/ml_algs/reg_log_reg_cost_func.png" alt="reg_log_reg_cost_function">
+                <p class="caption">Image 8: Cost function for regularised logistic regression.</p>
+            </div>
+            <p>Regularised logistic regression leverages Lagrange multipliers the same way that linear regression does to keep the optimal values of beta small.</p>
+            <p>Multiclass logistic regression uses the one-for-all method to choose a class. For each class, we create a model. Then we calculate the probability of 
+               the output being that class vs being one of the other ones. This is repeated for all classes and the highest probability one is output. An example will help
+               demonstrate this. Imagine we are training a digit classifier. We would first create 10 different models. The first model would check the probability of the digit 
+               being 0 or not 0. The second one would do 1 or not 1 and so on. The model which gives the highest probability is the digit we output.
+            </p>
+            <p><h4>Perceptron</h4></p>
+            <p>The perceptron algorithm is an example of a neural network. It is modelled on the human brain and consists of layers of neurons (models) who feed their output into each 
+               of the neurons in the next layer. Each neuron can be considered a ML model. A simple binary classification model using logistic regresssion can be viewed as a neural network with only 1 neuron and layer.
+               The cost function for perceptron is a generalised version of the cost function for logistic regression. There is an extra summation term because the neural network has 
+               k output units and we need to sum over all k. L stands for the number of layers. HTheta(x) is the same as seen in image 6.
+            </p>
+            <div class="img_div">
+                <img src="../../images/projects/ml_algs/cost_function_perceptron.jpg" alt="perceptron_cost_function">
+                <p class="caption">Image 9: Cost function for regularised perceptron.</p>
+            </div>
+            <p>We minimise the cost function using an algorithm known as backpropagation. Firstly, we execute forward propagation. The a(n) represents the nth layer in the neural network while 
+               Theta(n) represents the weights for the nth layer of the neural network. g(f(x)) means that the function f(x) is passed into the sigmoid function g(z). We want to calculate a(n) for all layers.
+            </p>
+            <div class="img_div">
+                <img src="../../images/projects/ml_algs/forward_propagation.jpg" alt="forward_propagation">
+                <p class="caption">Image 10: Forward propagation algorithm.</p>
+            </div>
+            <p> Capital delta is an accumlator which can be used to compute the derivative of the cost function with respect to Theta((i,j)), the weight for the ith training value and jth feature. Lower case delta(L) is a j dimensional 
+                vector that contains the error for layer L in the neural network. We used forward propagation to calculate the values of a(n) for each layer. Then we initialise an accumlator and propagate a backwards 
+                with capital delta accumulating all of the errors. One we have accumulated all of the errors, we can quickly find the gradient of any node in the network go in the opposite direction so that the error is being minimised.</p>
+            <div class="img_div">
+                <img src="../../images/projects/ml_algs/backpropagation.jpg" alt="backpropagation">
+                <p class="caption">Image 11: Backpropagation algorithm</p>
+            </div>
+            <p><h4>Principal Component Analysis (PCA)</h4></p>
+            <p>Principal Component Analysis or PCA are the most widely used dimensionality reduction technique. What does this mean? Say you have a dataset with a large amount of features, maybe 10000. Obviously this can be quite difficult and 
+                time consuming to work with; however, by applying PCA to our dataset, we can significantly reduce the number of features/dimensions. Another benefit of using PCA is that by reducing the number of features to 2/3, we can visualise our 
+                dataset. What PCA does is that it finds a vector, u, that it can project data points onto to minimize the projection error. What is the projection error? Well, the projection error is the distance from a data point to the same data point projected 
+                onto the vector u. If you view image 12, you can see that the red line is a better choice than the magneta line because the average projection error (blue lines from data points) is much lower.
+            </p>
+            <div class="img_div">
+                <img src="../../images/projects/ml_algs/pca_1.png" alt="projection_error_viz">
+                <p class="caption">Image 12: The blue lines indicate the projection error. As you can see, the red line is a better vector to project onto.</p>
+            </div>
+            <p>In the more general case where we want to reduce the dataset from n dimensions to k, we need to find a k vectors, u<sub>1</sub>, u<sub>2</sub> ... u<sub>k</sub>, onto which to project the data. In other words, we are projecting our data points onto the 
+               space spanned by the vectors u<sub>i</sub>. Now I will talk about the PCA algorithm. Before we can start, it is important to note that PCA works best when the features have been scaled so that they are all within 
+               a similar range. Once the features are scaled, we compute the covariance matrix and the eigenvectors. I won't talk about the method we use to compute both of those, but once we have them we simply take the first k column vectors 
+               and compute u<sup>T</sup>x<sub>i</sub>.</p>
+            <div class="img_div">
+                <img src="../../images/projects/ml_algs/pca_alg_1.png" alt="pca_alg_1">
+                <p class="caption">Image 13: Outline of the PCA algorithm. This part shows us how to get our matrix of column vectors.</p>
+                <img src="../../images/projects/ml_algs/pca_alg_2.png" alt="pca_alg_2">
+                <p class="caption">Image 14: Outline of the PCA algorithm. This shows us how to obtain the projected vector, z, from our column vectors and n-dimensional data point.</p>
+            </div>
+            <p><h4>Support Vector Machines (SVM)</h4></p>
+            <p>Support vector machines (SVM) are a model used in machine learning that work by finding a maximum distance/margin decision boundary that divides the dataset into different classes. For example,
+                in image 12, the SVM would select the black decision boundary rather than the magneta or green boundary because the black boundary has the largest margin between data points in each class. The cost function 
+                for an SVM is similar to the cost function for logistic regression except that it puts the cost as 0 if the classifier predicts correctly, e.g., if y = 1 and &#920<sup>T</sup>x >= 1 or y = 0 and &#920<sup>T</sup>x &#60= -1
+            </p>
+            <div class="img_div">
+                <img src="../../images/projects/ml_algs/svm_margin.png" alt="svm_largest_margin">
+                <p class="caption">Image 15: SVM selects the largest margin decision boundary which is the black one.</p>
+                <img src="../../images/projects/ml_algs/svm_cost_function.png" alt="svm_cost_func">
+                <p class="caption">Image 16: SVM cost function.</p>
+            </div>
+            <p>For non-linear decision boundaries, one method is to create polynomial features from existing features; however, this method is computationally expensive and it is difficult to know which features will be good. A better solution 
+                would be to use a kernel. Firstly, we initialise various landmarks, l<sub>1</sub>, l<sub>2</sub>, l<sub>3</sub>, and compute a similarity score between x<sub>i</sub>'s and each of the landmarks. The similarity function used to 
+                compute the score is called the kernel. What happens is that each of the landmarks define a new feature. 
+            </p>
+            <div class="img_div">
+                <img src="../../images/projects/ml_algs/svm_gaussian_kernel.png" alt="SVM_w_gaussian_kernel">
+                <p class="caption">Image 17: SVM with gaussian kernel.</p>
+            </div>
+            <p>In practice, we want to initialise each of our data points as its own landmark. Then for each x<sub>i</sub> we will compute a feature vector that contains the similariry score with all other landmarks.
+               Once you have the feature vector, simply multiply it with &#920<sup>T</sup> vector which gives you &#920<sub>0</sub>f<sub>0</sub> + &#920<sub>1</sub>f<sub>1</sub> + ... + &#920<sub>m</sub>f<sub>m</sub>. If this is > 0, we output y = 1.
+               Now the question is, how do we find the values for our weights, &#920? Similar to regression, we will run gradient descent on our cost function to find the optimal values of &#920.</p>
+            <div class="img_div">
+                <img src="../../images/projects/ml_algs/svm_w_kernel.png" alt="svm_w_kernel">
+                <p class="caption">Image 18: Computing feature vector for each data point, x<sub>i</sub></p>
+                <img src="../../images/projects/ml_algs/svm_training.png" alt="svm_training">
+                <p class="caption">Image 19: How to use feature and &#920 vectors to predict a class, and the cost function for SVM.</p>
+            </div>
+            <p><h4>K-Means Clustering</h4></p>
+            <p>In a clustering algorithm, we would like to take an unlabelled dataset and use the algorithm to group it into coherent subsets. K-Means is one of the most commonly used clustering algorithms. Just a note before we begin, K Nearest Neighbours (KNN) 
+                is not the same as K-Means since KNN is used with labelled data to perform classification while K-Means is used to generate clusters from unlabelled data. K-Means is an iterative algorithm that consists of an outer loop and an inner loop. Firstly, we 
+                initialise k random cluster centroids (k = number of clusters). Then we loop through each data point and assign it to the closest cluster centroid. Once each data point is assigned to a cluster, we compute the average of all of the points in 
+                each cluster and move the respective centroid to that mean. This process of assigning clusters and moving the centroids to the new mean is repeated until the mean stops changing. 
+            </p>
+            <div class="img_div">
+                <img src="../../images/projects/ml_algs/cluster_centroids.png" alt="init_centroids">
+                <p class="caption">Image 20: Randomly initialising two cluster centroids.</p>
+                <img src="../../images/projects/ml_algs/assign_to_cluster.png" alt="assign_data_to_centroids">
+                <p class="caption">Image 21: Assigning each data point to a cluster.</p>
+                <img src="../../images/projects/ml_algs/move_means.png" alt="move_centroids">
+                <p class="caption">Image 22: Move each centroid to the mean of the cluster.</p>
+                <img src="../../images/projects/ml_algs/k_means.png" alt="k_means_complete">
+                <p class="caption">Image 23: After running K-Means a few more times.</p>
+                <img src="../../images/projects/ml_algs/k_means_alg.png" alt="k_means_alg">
+                <p class="caption">Image 24: Psuedocode for K-Means algorithm.</p>
+            </div>
+            <p>The cost function for K-Means is simply the average distance from the centroid that each point is assigned to. Therefore, our optimisation objective is to minimise this distance.</p>
+            <div class="img_div">
+                <img src="../../images/projects/ml_algs/k_means_cost_func.png" alt="cost_function_k_means">
+                <p class="caption">Image 25: K-Means cost function and optimisation objective.</p>
+            </div>
+            <p><h4>Movie Recommender System</h4></p>
+            <p>One practical application of machine learning is to build recommendor systems. We see it all the time when we browse YouTube, Netflix, Amazon, Spotify etc. In this section, I will outline an algorithm that can be used 
+                to recommend movies depending on the ratings that you give various movies. Consider a dataset that has two tables with the columns being users and rows being movies; the first table tells us if a person has rated a movie or not;
+                the second table tells us what rating is given to whichever movie. Given this dataset, we want to predict a rating that a user will give to a movie that they have not seen.
+            </p>
+            <div class="img_div">
+                <img src="../../images/projects/ml_algs/movie_rec_problem.png" alt="formulation_of_movie_rec_problem">
+                <p class="caption">Image 26: Problem formulation for movie recommender system.</p>
+            </div>
+            <p>Next, suppose we also have a dataset that contains the movies as rows and a genre score on the columns. The genre score indicates how much of that genre a movie contains in the range [0,1]. In image 27, suppose we have already obtained 
+                a feature vector x<sub>3</sub> for puppy's in love and a genre preference vector &#920<sub>1</sub> (vector for Alice). Using these two vectors, we can calculate the expected rating that Alice would give to puppy's in love.
+            </p>
+            <div class="img_div">
+                <img src="../../images/projects/ml_algs/predict_alice_rating.png" alt="alice_rating_prediction">
+                <p class="caption">Image 27: Predict Alice's rating for Puppy's in Love.</p>
+            </div>
+            <p>So, how do we actually get our values for &#920? The cost function that we choose to minimise is similar to the one for linear regression, is it 1/2 * the sum of the errors between predicted rating and actual rating + regularisation term.</p>
+            <div class="img_div">
+                <img src="../../images/projects/ml_algs/nomenclature.png" alt="terminology">
+                <p class="caption">Image 28: Defining the terms that we will use in the cost functino.</p>
+                <img src="../../images/projects/ml_algs/movie_rec_cost_func.png" alt="optimisation_obj_for_movie_rec">
+                <p class="caption">Image 29: The optimisation objective for our movie recommender system.</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="https://github.com/anirudh1666"><img src="../../images/github_img.png"></a>
+            <a href="https://www.kaggle.com/anirudhlakra"><img src="../../images/kaggle_img.png"></a>
+            <a href="https://www.linkedin.com/in/anirudh-lakra-217b75194/"><img src="../../images/linkedin_img.png"></a>
+            <a href="mailto:anirudhlakra1666@gmail.com"><img src="../../images/gmail.png"></a>
+        </div>
+    </body>
+</html>

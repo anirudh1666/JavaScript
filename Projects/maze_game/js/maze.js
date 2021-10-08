@@ -10,6 +10,7 @@
 */
 
 var NUM_ROWS_COLS = 25;       // Make this 1 less than the number you want since 0 is included.
+var ALGORITHM = 1;           // 1 = recursive backtracker, 2 = kruskals, 3 = primms
 var cell_dim;
 var cell_padding;
 var line_width;
@@ -17,6 +18,7 @@ var start;
 var end;
 var maze;
 var player_pos;
+
 
 /* Constructor for class Node. 
    @params = row : row number.
@@ -30,6 +32,7 @@ function Node(row, col, edges, neighbours) {
     this.edges = edges;
     this.neighbours = neighbours;
     this.visited = false;     // True if node has been visited already.
+    this.set = row.toString() + "," + col.toString();
     
     /* Returns a randomly selected adjacent node to node this. 
        The node must not already be visited.
@@ -111,10 +114,19 @@ function init() {
     maze = build_maze();
     start = choose_start();
     end = choose_end(start);
-    var stack = new Stack();
-    stack.push(start);
-    var current = maze[start[0]][start[1]];
-    dfs(current, stack, maze);
+    if (ALGORITHM == 1) {
+        // dfs
+        var stack = new Stack();
+        stack.push(start);
+        var current = maze[start[0]][start[1]];
+        dfs(current, stack, maze);
+    }
+    else if (ALGORITHM == 2){
+        // kruskals
+    }
+    else {
+        // primms
+    }
     draw_maze(maze);
     color_start_end(start, end);
     init_player();
@@ -193,6 +205,10 @@ function dfs(current, stack, maze) {
         neighbour.visited = true;
         stack.push(unvisited_neigh);
     }
+}
+
+function kruskals(current) {
+
 }
 
 /* Selects start node randomly and returns it.

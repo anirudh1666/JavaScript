@@ -8,51 +8,41 @@
         <meta charset="UTF-8">
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="../../css/projects2_style.css">
+        <link rel="stylesheet" type="text/css" href="../../css/project_post_style.css">
     </head>
     <body>
         <header class="menu">
             <h1>Anirudh Lakra</h1>
             <ul>
-                <li><a href="../index.html">Home</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="../blog/blogs.html">Blog</a></li>
-                <li><a href="../experiences/experiences.html">Experience</a></li>
-                <li><a href="../../AnirudhLakraCV.pdf">CV</a></li>
+                <li><a href="../experience.html">Experience</a></li>
             </ul>
         </header>
-        <div id="title">
-            <h2>Solar Viewer</h2>
-            <p>02/2020</p>
-        </div>
-        <div id="content">
-            <p>During my Object Oriented Programming modules one of the exercises was to build a solar system viewer 
-                program in Java. Things related to space are quite intriguing and so I began building my own solar system viewer.
+        <div class="content">
+            <h2><u>Solar System Viewer</u></h2>
+            <h3>01/2020</h3>
+            <p>During my first year, I wanted to learn more about Java and I also had an interest in space. Thus, I attempted to 
+               create an animation of the solar system using Java. My objectives included learning about Java Swing, Object-Oriented 
+               Programming (OOP), and creating an accurate representation of our solar system.
             </p>
-            <p>The main problem I faced was that I had no experience with animations and drawing in Java and so I first found out as much as 
-                I could about libraries like Javax, JavaSwing and JFrame. After learning the basics of each of them I started my project. 
+            <div class="img_div">
+                <img src="../../images/projects/solar_viewer/solar_system.png" alt="solar_system_animation">
+                <p class="caption">Image 1: Basic solar system animation using Java Swing.</p>
+            </div>
+            <p>The first thing I did was research Java Swing and the orbital speeds, radii, and sizes of the planets in our solar system. 
+               Luckily, Java Swing was not extremely complicated, and I was able to grasp it quickly. On the other hand, I faced an issue with 
+               making the planets accurately sized. Unfortunately, the sun would be so big that the other planets would be near invisible, and if I 
+               tried to make the planets a bit larger, the sun would swallow up the first 3. The only solution would be to allow users to zoom in or out 
+               of the animation to view planets; however, at this point of my programming career, I did not think of this and left the planet sizes inaccurate. 
+               I thought if the screen was bigger, I would be able to do it but otherwise there is no solution. 
             </p>
-            <p>To help make the project managable I broke it down into 3 bits:
-                <ul>
-                    <li>Firstly, I worked on building a completely black canvas with just the sun drawn in the center.</li>
-                    <li>Secondly, I added planets and focused on coding circular motion to allow the planets to be seen rotating.</li>
-                    <li>Lastly, I tried to make it as accurate as I could. However, I faced a problem at this step. When I tried to make both 
-                        size and distance from the sun accurate, I found that since my screen was too small the Sun would swallow up the first couple of
-                        planets or they would be too small and too close to the Sun. Instead by making the Sun smaller and keeping the planets sizes, distances 
-                        and orbital speeds accurate I could fit them all onto my screen. 
-                    </li>
-                </ul>
-            </p>
-            <p><p>Link to this project is <a href="https://github.com/anirudh1666/Java/tree/master/Projects/SolarViewer">here</a></p></p>
         </div>
         <div class="footer">
-            <a href="https://github.com/anirudh1666">
-                <img src="../../images/github_img.png" width="90" height="50">
-            </a>
-            <a href="https://www.linkedin.com/in/anirudh-lakra-217b75194/">
-                <img src="../../images/linkedin_img.png" width="60" height="60">
-            </a>
-            <p>Copyright © 2020 Anirudh Lakra. All Rights Reserved.</p>
+            <a href="https://github.com/anirudh1666"><img src="../../images/github_img.png"></a>
+            <a href="https://www.kaggle.com/anirudhlakra"><img src="../../images/kaggle_img.png"></a>
+            <a href="https://www.linkedin.com/in/anirudh-lakra-217b75194/"><img src="../../images/linkedin_img.png"></a>
+            <a href="mailto:anirudhlakra1666@gmail.com"><img src="../../images/gmail.png"></a>
         </div>
     </body>
 </html>

@@ -1,9 +1,14 @@
 body {
+    font-family: "Times New Roman", Helvetica, sans-serif;
     font-size: 1em;
 }
 
+h2, h3 {
+    text-align: center;
+}
+
 .menu {
-    font-family: 'Book Antiqua', 'Palatino Linotype', Palatino, serif;
+    font-family: 'Times New Roman', 'Palatino Linotype', Palatino, serif;
     width: 100%;
     display: flex;
     align-items: baseline;
@@ -46,39 +51,27 @@ body {
     margin: 20px;
 }
 
-#title {
+
+.content {
+    background-color: white;
+    margin-left: 13%;
+    margin-right: 13%;
+}
+
+.img_div {
     text-align: center;
 }
 
-#title h2 {
-    font-size: 2em;
+.img_div img {
+    max-width: 750px;
+    max-height: 550px;
+    margin-top: 2%;
 }
 
-#title p {
-    font-size: 1.2em;
+.caption {
+    font-size: 0.9em;
 }
 
-#content {
-    width: 80%;
-    font-size: 1.2em;
-    margin-left: 10%;
-}
-
-#content a:link {
-    color: black;
-}
-
-#content a:visited {
-    color: black;
-}
-
-#content a:hover {
-    color: black;
-}
-
-#content a:active {
-    color: black;
-}
 
 .footer {
     border-top: 1px solid;
@@ -97,4 +90,13 @@ body {
 
 .footer p {
     font-size: 0.7em;
+}
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+    .post {
+        margin-left: 15%;
+        width: 70%;
+    }
 }

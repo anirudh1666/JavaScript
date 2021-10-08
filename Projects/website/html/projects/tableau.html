@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Anirudh Lakra</title>
+        <meta name="Website" content="Anirudh Lakra's website">
+        <meta name="Author" content="Anirudh Lakra">
+        <meta charset="UTF-8">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../../css/project_post_style.css">
+    </head>
+    <body>
+        <header class="menu">
+            <h1>Anirudh Lakra</h1>
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="../experience.html">Experience</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <h2><u>Analytic Tableau</u></h2>
+            <h3>01/2021</h3>
+            <p>For my logic module, I was tasked to implement the analytic tableau algorithm to verify the validity of 
+               propositional logic theorems in C. The tableau algorithm implemented is outlined below:
+               <ol>
+                   <li>Place the negated version of the theorem at the root of our tree. At each step, we will expand the node of the tree before 
+                       and add new nodes.</li>
+                   <li>Find the highest level connective. If it is a conjunction (A and B), add a new node below that contains 
+                       the first part of the conjunction (A) and then a new node below that one that contains the second part of the conjunction (B).
+                       If it is a disjunction (A or B), then we split the tree and create two nodes on the same level. Add an edge to from the 
+                       tree to each of the nodes. The first node contains A while the second node contains B. The disjunction creates a new branch while 
+                       conjunction simply adds new nodes to the same branch. Double negations can be expanded to put the non negated version, e.g., not not A expands to A.
+                       A negated conjunction counts as a disjunction where the right and left hand sides are negated. Similarly, a negated disjunction is a 
+                       conjunction with negated left and right hand sides.
+                   </li>
+                   <li>Repeat this process until all nodes have been expanded. In other words, they are simply a variable or negation, e.g., A, not A.</li>
+                   <li>For each branch, go through it. Whenever you see a contradiction, for example, A and then not A lower down the branch, you mark it as closed. It is closed 
+                       because there is no way to make a contradiction true.
+                   </li>
+                   <li>Check if there are any open branches. If there aren't then the negated theorem is unsatisfiable and, therefore, the theorem is valid.</li>
+               </ol>
+            </p>
+            <div class="img_div">
+                <img src="../../images/projects/tableau/tableau.png">
+                <p class="caption">Image 1: Expanded tableau tree. Lines shown a closed branch.</p>
+            </div>
+            <p>The hardest part of this algorithm was implementing it in C. I built a tree structure that is composed of nodes that have pointers to the next node 
+               in the tree. Next, I had to implement tree traversal that would check each branch. By incoporating a recursive tree traversal algorithm that used a stack,
+               I was able to check for open branches.
+            </p>
+        </div>
+        <div class="footer">
+            <a href="https://github.com/anirudh1666"><img src="../../images/github_img.png"></a>
+            <a href="https://www.kaggle.com/anirudhlakra"><img src="../../images/kaggle_img.png"></a>
+            <a href="https://www.linkedin.com/in/anirudh-lakra-217b75194/"><img src="../../images/linkedin_img.png"></a>
+            <a href="mailto:anirudhlakra1666@gmail.com"><img src="../../images/gmail.png"></a>
+        </div>
+    </body>
+</html>

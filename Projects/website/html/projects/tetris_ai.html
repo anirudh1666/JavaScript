@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Anirudh Lakra</title>
+        <meta name="Website" content="Anirudh Lakra's website">
+        <meta name="Author" content="Anirudh Lakra">
+        <meta charset="UTF-8">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../../css/project_post_style.css">
+    </head>
+    <body>
+        <header class="menu">
+            <h1>Anirudh Lakra</h1>
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="../experience.html">Experience</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <h2><u>Tetris Bot</u></h2>
+            <h3>11/2019</h3>
+            <p>In my first year, I partook in a competition to build a bot that plays Tetris. The bot that obtains the 
+               highest score wins the competition. This was my first exposure to the world of machine learning. Initially, I 
+               had no clue on how I would go about building this bot but after some contemplation I came up with a solution.
+            </p>
+            <div class="img_div">
+                <img src="../../images/projects/tetris/tetris.png" alt="img of tetris">
+                <p class="caption">Image 1: Bot playing Tetris.</p>
+            </div>
+            <p>My solution works by evaluation every possible move that my bot can make and then scoring each of them. The 
+               highest scoring move is stored and executed. The next problem was how was I going to score each move? What kind of 
+               factors influenced the Tetris score?
+            </p>
+            <p>Once my research was completed, I decided on a few heuristics to use. I chose to use aggregate height, holes, differences in 
+               height between successive columns and "PUT MORE HERE!!". Now how would I weight each of these factors?
+            </p>
+            <p>At the start, I simply plugged in random values for the scoring equation hoping that I would eventually obtain the optimal ones; however,
+                I quickly realised that this would not work since there are an infinite number of possible values. I needed to use maths or computer science to find 
+                these weights. This is where the genetic algorithm factors in.
+            </p>
+            <p>The genetic algorithm works by initialising 100 different Tetris bots, each randomly assigned weights. We score each bot and the top 5 are kept
+               while the rest are discarded. Now, we initialise 100 new bots but they are all variants of the top 5. We repeat this until we obtain weights that give us 
+               a high enough score. The genetic algorithm is appropriately named taking its inspiration from natural selection. By leveraring the genetic 
+               algorithm, I was able to find the optimal weights for my heuristics.
+            </p>
+            <p>Currently, my Tetris bot only evaluates the next move to find the best scoring one. However, this can be improved upon by adding multiple lookahead moves. This would 
+                give my bot a significant performance boost and would be able to run for much longer.
+            </p>
+        </div>
+        <div class="footer">
+            <a href="https://github.com/anirudh1666"><img src="../../images/github_img.png"></a>
+            <a href="https://www.kaggle.com/anirudhlakra"><img src="../../images/kaggle_img.png"></a>
+            <a href="https://www.linkedin.com/in/anirudh-lakra-217b75194/"><img src="../../images/linkedin_img.png"></a>
+            <a href="mailto:anirudhlakra1666@gmail.com"><img src="../../images/gmail.png"></a>
+        </div>
+    </body>
+</html>

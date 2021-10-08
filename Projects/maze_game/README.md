@@ -1,0 +1,1 @@
+"To get this program to run, first you must get the sprite hosted on your local computer to bypass the cross origin error. This can be done by opening up a terminal in the maze game folder and typing "python simple_cors_http_server.py". Once that is completed, select index.html to play the game. If the python script is not run, the player sprite will not be initialised" 

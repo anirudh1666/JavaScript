@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Anirudh Lakra</title>
+        <meta name="Website" content="Anirudh Lakra's website">
+        <meta name="Author" content="Anirudh Lakra">
+        <meta charset="UTF-8">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../../css/project_post_style.css">
+    </head>
+    <body>
+        <header class="menu">
+            <h1>Anirudh Lakra</h1>
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <h2 style="text-align:center"><u>JShell</u></h2>
+            <h3 style="text-align:center">12/2020</h3>
+            <p>This application was developed for my Software Engineering module in Year 2 in a group of 3.</p>
+            <p>JShell is a replica of Unix Bash that is written in Java. This application is fully dockerised, 
+               and various software development methodologies were used to help streamline development. </p>
+            <p>We chose to use the Agile Development methodology over the Waterfall method because our team was 
+               small; consequently, we were flexible with how we would work and could often go back to make revisions. 
+               On the other hand, if we had been a bigger team, the rigid structure of the waterfall method 
+               would be ideal since it would be more organised.</p>
+            <div class="img_div">
+                <img src="../../images/projects/jsh/jsh_pic.png" alt="example_jsh">
+                <p class="caption">Image 1: JShell working in the command line for Visual Studio Code.</p>
+            </div>
+            <p>Furthermore, we applied Test-Driven Development, TDD, to make our code more modular and reduce 
+               time spent debugging. By the end, our tests achieved 90%+ branch coverage. Regression and black-box 
+               testing were also incorporated into our methodology. Regression testing helped catch new bugs while black-box 
+               testing lets a tester test from the point of view of a user which makes it unbiased.</p>
+            <div class="img_div">
+                <img src="../../images/projects/jsh/jsh_reference_design.png" alt="jsh_architecture">
+                <p class="caption">Image 2: The architecture diagram for JShell showing how the classes work together.</p>
+            </div>
+            <p>In our code, we used the factory, visitor, decorator, and dynamic dispatch design patterns. 
+               The main reason we decided to use the visitor design pattern is that each application is like a 
+               node on a tree where the root is the interface Visitable, and the visitor object can visit the specific 
+               node (each application such as ls, cut, pwd implements Visitable and acts as a node) that it wants to. 
+               The main problem I felt with this is that it made our design a lot more complicated and harder to understand, 
+               however, it also decoupled the implementation of the applications with the creation. Polymorphism was 
+               leveraged since visitor.visit would work with multiple different types of objects. We used dynamic 
+               dispatch to create the application object without knowing which specific application object it is, and the 
+               factory would handle the creation of the object by using a switch case statement. The unsafe decorator was used in 
+               testing because it would cause JShell to exit when an error occurs rather than catch the exception
+                and carry-on running. This meant we could quickly test new functionality.</p>
+        </div>
+        <div class="footer">
+            <a href="https://github.com/anirudh1666"><img src="../../images/github_img.png"></a>
+            <a href="https://www.kaggle.com/anirudhlakra"><img src="../../images/kaggle_img.png"></a>
+            <a href="https://www.linkedin.com/in/anirudh-lakra-217b75194/"><img src="../../images/linkedin_img.png"></a>
+            <a href="mailto:anirudhlakra1666@gmail.com"><img src="../../images/gmail.png"></a>
+        </div>
+    </body>
+</html>

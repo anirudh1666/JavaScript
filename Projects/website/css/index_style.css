@@ -1,9 +1,14 @@
 body {
     font-size: 1em;
+    background-image: url("my_svg2.svg");
+}
+
+p, h1, img {
+    background-color: white;
 }
 
 .menu {
-    font-family: 'Book Antiqua', 'Palatino Linotype', Palatino, serif;
+    font-family: 'Times New Roman', 'Palatino Linotype', Palatino, serif;
     width: 100%;
     display: flex;
     align-items: baseline;
@@ -51,6 +56,8 @@ body {
     margin-left: 15%;
     margin-right: 15%;
     border-bottom: 1px solid;
+    overflow: hidden;
+    padding-bottom: 1.7%;
 }
 
 #about h2 {
@@ -60,6 +67,14 @@ body {
     text-align: center;
     border-bottom: 1px solid;
     padding-bottom: 1%;
+}
+
+#about img {
+    border-radius: 50%;
+    float: left;
+    width: 22%;
+    height: 22%;
+    object-fit: contain;
 }
 
 #about p {
@@ -84,4 +99,154 @@ body {
 
 .footer p {
     font-size: 0.7em;
+}
+
+#container {
+    top: 35%;
+    left: 42.5%;
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    animation: remove-circle 0.5s linear 2.95s forwards;
+    overflow: hidden;
+}
+
+.circle {
+    position: relative;
+}
+
+.outer_circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background: black;
+}
+
+.inner_circle {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 180px;
+    width: 180px;
+    background: white;
+    border-radius: 50%;
+}
+
+.logo {
+    top: calc(200px / 4);
+    left: calc(200px / 4);
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    opacity: 0;
+    animation: show-logo 1s linear 2s forwards;
+}
+
+.box {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background: white;
+}
+
+.box-top-left {
+    left: 0;
+    top: 0;
+    transform-origin: 100% 100%;
+    animation: show-first-third 0.5s linear forwards;
+}
+
+.box-top-right {
+    left: 100px;
+    top: 0;
+    transform-origin: 0 100%;
+    animation: show-second-fourth 0.5s linear 1.5s forwards;
+}
+
+.box-bottom-left {
+    top: 100px;
+    left: 0;
+    transform-origin: 100% 0;
+    animation: show-second-fourth 0.5s linear 0.5s forwards;
+}
+
+.box-bottom-right {
+    top: 100px;
+    left: 100px;
+    transform-origin: 0 0;
+    animation: show-first-third 0.5s linear 1s forwards;
+}
+
+#main {
+    position: relative;
+    opacity: 0;
+    animation: load-content 0.5s linear 3.4s forwards;
+}
+
+@keyframes remove-circle {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes load-content {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes show-first-third {
+    0% {
+        transform: skewX(0deg);
+    }
+    95% {
+        width: 100px;
+        height: 100px;
+    }
+    99.9% {
+        height: 100px;
+        width: 100px;
+    }
+    100% {
+        height: 0;
+        width: 0;
+        transform: skewX(90deg);
+    }
+}
+
+@keyframes show-second-fourth {
+    0% {
+        transform: skewY(0deg);
+    }
+    95% {
+        width: 100px;
+        height: 100px;
+    }
+    99.9% {
+        height: 100px;
+        width: 100px
+    }
+    100% {
+        height: 0;
+        width: 0;
+        transform: skewY(-90deg);
+    }
+}
+
+@keyframes show-logo {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

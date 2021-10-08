@@ -1,10 +1,10 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Times New Roman", Helvetica, sans-serif;
     font-size: 1em;
 }
 
 .menu {
-    font-family: 'Book Antiqua', 'Palatino Linotype', Palatino, serif;
+    font-family: 'Times New Roman', 'Palatino Linotype', Palatino, serif;
     width: 100%;
     display: flex;
     align-items: baseline;
@@ -47,42 +47,62 @@ body {
     margin: 20px;
 }
 
-#index {
-    text-align: center;
+.project {
+    background-color: white;
 }
 
-.post {
+#project_list {
+    margin-top: 2%;
+}
+
+.project a:link {
+    color: black;
+    text-decoration: none;
+}
+
+.project a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.project a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.project a:active {
+    color: black;
+    text-decoration: none;
+}
+
+.project {
+    border: 1px solid black;
     float: center;
-    text-align: center;
-    background-color: black;
-    color: white;
-    border-radius: 25px;
-    margin-left: 30%;
-    margin-right: 30%;
-    margin-top: 1%;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    height: 300px;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 2.8%;
+    padding-left: 1%;
+    height: 200px;
+    box-shadow: 5px 10px;
 }
 
-.post a {
-    text-decoration: underline;
+.project:hover {
+    animation: box-shadow 0.5s linear forwards;
 }
 
-.post a:link {
-    color: white;
+@keyframes box-shadow {
+    0% {
+        box-shadow: 5px 10px;
+    }
+    100% {
+        box-shadow: none;
+    }
 }
 
-.post a:visited {
-    color: white;
-}
-
-.post a:hover {
-    color: white;
-}
-
-.post a:active {
-    color: white;
+.project img {
+    float: right;
+    height: 200px;
+    width: 200px;
 }
 
 .footer {

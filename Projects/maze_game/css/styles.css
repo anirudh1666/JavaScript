@@ -1,20 +1,7 @@
-body {
-    font-size: 1em;
-    background-color: lightblue;
-}
-
-#heading-box {
-    background-color: blue;
-    padding: 10px;
-    border: 1px solid;
-}
-
 #header {
     text-align: center;
     padding-top: .1em;
-    font-family: Verdana, Geneva, sans-serif;
-    color: orange;
-    text-decoration: underline;
+    font-family: 'Times New Roman', Geneva, sans-serif;
 }
 
 #about {

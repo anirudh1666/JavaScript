@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Anirudh Lakra</title>
+        <meta name="Website" content="Anirudh Lakra's website">
+        <meta name="Author" content="Anirudh Lakra">
+        <meta charset="UTF-8">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../../css/project_post_style.css">
+    </head>
+    <body>
+        <header class="menu">
+            <h1>Anirudh Lakra</h1>
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="../experience.html">Experience</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <h2><u>JavaScript Maze Game</u></h2>
+            <h3>08/2020</h3>
+            <p>Due to Coronavirus, my first year at university was cut short. The extra 
+               time allowed me to do some new projects, one of which was a maze game that ran in your browser.</p>
+            <p>The main objective of this project was to act as an introduction to JavaScript, HTML5, and CSS3. 
+               I used the books <a href="https://www.amazon.co.uk/Smarter-Way-Learn-JavaScript-technology/dp/1497408180/ref=sr_1_1?dchild=1&keywords=a+smarter+way+to+learn+javascript&qid=1592392447&s=instant-video&sr=8-1">
+                A Smarter Way to learn JavaScript</a> and <a href="https://www.amazon.co.uk/Smarter-Way-Learn-HTML-CSS/dp/150867387X/ref=sr_1_1?dchild=1&keywords=a+smarter+way+to+learn+html&qid=1592392494&sr=8-1">
+                Smarter Way to learn HTML and CSS</a>, both by Mark Myers, to teach myself about web development.</p>
+            <p>Once I knew the basics of JavaScript, HTML and CSS, I divided the project into three subproblems which were:
+                <ol>
+                    <li>Generating a random maze</li>
+                    <li>Rendering and displaying maze to the user.</li>
+                    <li>Controlling player movement.</li>
+                </ol>
+            </p>
+            <p>I wanted to create try out and compare multiple maze generation algorithms. The ones I chose to implement are 
+                Kruskal's, Prim's, and recursive backtracker. The easiest one to implement is recursive backtracker while Kruskal's and 
+                Prim's are equally as difficult. I have written out the steps for each algorithm below. 
+            </p>
+            <p><h4><b>Recursive Backtracker</b></h4>
+                In this algorithm, I used a stack rather than recursion because the stack will allow deep recursion without causing 
+                the stack overflow error. The main advantage of this algorithm is that is it is easy to implement, on the other hand, its 
+                main disadvantage is that it generates mazes with a low branching factor. In other words, the mazes it creates are prone to have 
+                long corridors.
+                <ol>
+                    <li>Push starting cell onto the stack and mark it as visited.</li>
+                    <li>Pop off the stack. Randomly pick an unvisited neighbour of the popped cell. 
+                        Push the neighbour cell and popped the cell onto the stack, and mark neighbour as visited.</li>
+                    <li>Repeat step 2 until you reach a cell that has all its neighbours visited.</li>
+                    <li>Pop off the stack and check if the cell has any unvisited neighbours. Do this 
+                        until you reach a cell that has unvisited neighbours. Go to step 2.</li>
+                    <li>Continue this algorithm until the stack is empty.</li>
+                </ol>
+            </p>
+            <div class="img_div">
+                <img src="../../images/projects/maze_game/recursive_backtracker.png" alt="recursive_backtracker_alg">
+                <p class="caption">Image 1: Recursive backtracker algorithm. You can see the long corridors that this algorithm creates.</p>
+            </div>
+            <p><h4><b>Kruskal's</b></h4>
+                Placeholder
+            </p>
+            <div class="img_div">
+                <img src="../../images/projects/maze_game/kruskals.png" alt="kruskals_alg">
+                <p class="caption">Image 2: Kruskal's algorithm. Unbiased maze generation algorithm.</p>
+            </div>
+            <p><h4><b>Prim's</b></h4>
+                Placeholder
+            </p>
+            <div class="img_div">
+                <img src="../../images/projects/maze_game/prims.jpg" alt="prims_alg">
+                <p class="caption">Image 3: Prim's algorithm. Another unbiased maze generation algorithm.</p>
+            </div>
+            <p>Solving problem 2 consisted of tinkering with a website I built with a maze that my algorithm already generated. 
+               I decided to use the JavaScript library PixiJS to handle player movement and rendering the maze because it would provide a good 
+               opportunity to learn a new JavaScript library; additionally, PixiJS allows us to create player animations which default JavaScript does not.
+               The maze was rendered by drawing rectangles from each pair of cells that had an edge to each other. I used the window height as the limiting 
+               factor for line width because the window height is generally smaller than the width.</p>
+            <p>Once the maze had been rendered, all I had to do now was to create a player sprite, provide animations for its movement, and make sure that it cannot 
+               make any illegal moves. The sprite and its animations were downloaded from an online website. PixiJS enables us to load in the spritesheet and draw segments 
+               representing a frame of movement. For each direction of movement, I created an array that contained the frames for that direction. PixiJS would then loop those frames 
+               into an animation when the player was moving. 
+            </p>
+            <p>Finally, my last task was to prevent the player from moving off the maze. Initially, I tried to calculate the dimensions of the maze the player is in and check if its 
+                position is in bounds; however, this method proved to be too time consuming and buggy. Alternatively, I decided to check if the player sprite would move onto 2 black pixels facing 
+                the direction the player wants to go. If either pixel is black, then we have hit a wall and, therefore, the player cannot move there. 
+            </p>
+            <p>In the future, I will extend this game by implementing the A* path finding algorithm to display the path through the maze to the player.</p>
+            <p>Link to the Gitub repository can be found <a href="https://github.com/anirudh1666/JavaScript/tree/master/Projects/maze_game">here.</a></p>
+        </div>
+        <div class="footer">
+            <a href="https://github.com/anirudh1666"><img src="../../images/github_img.png"></a>
+            <a href="https://www.kaggle.com/anirudhlakra"><img src="../../images/kaggle_img.png"></a>
+            <a href="https://www.linkedin.com/in/anirudh-lakra-217b75194/"><img src="../../images/linkedin_img.png"></a>
+            <a href="mailto:anirudhlakra1666@gmail.com"><img src="../../images/gmail.png"></a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: white;
+}
+
+#container {
+    border: 1px solid black;
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 20px 35px rgba(0,0,0,3);
+    overflow: hidden;
+}
+
+#container:before {
+    content: "";
+    background-image: conic-gradient(
+        #04b0ee 20deg,
+        transparent 120deg
+    );
+    height: 150%;
+    width: 150%;
+    position: absolute;
+    left: -25%;
+    top: -25%;
+}
